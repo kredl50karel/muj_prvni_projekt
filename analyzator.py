@@ -1,7 +1,7 @@
 # Projekt - textovy analyzator
 # texty k analyze
 
-TEXTS = '''Situated about 10 miles west of Kemmerer,
+TEXTS = ['''Situated about 10 miles west of Kemmerer,
 Fossil Butte is a ruggedly impressive
 topographic feature that rises sharply- 
 some 1000 feet above Twin Creek Valley
@@ -27,7 +27,7 @@ are found in multiple limestone layers, which lie some
 represent several varieties of perch, as well as
 other freshwater genera and herring similar to those
 in modern oceans. Other fish such as paddlefish,
-garpike and stingray are also present.'''
+garpike and stingray are also present.''']
 
 # zaregistrovani uzivatele
 
@@ -59,10 +59,22 @@ if uzivatele.get(uzivatel) != heslo:
 # vyber textu
 
 print(oddelovac)
+
+vyber = [1,2,3]
 print('We have 3 texts to be analyzed.')
-vyber_textu = int(input('Enter a number btw. 1 and 3 to select: '))
-print(oddelovac)
-text = TEXTS[vyber_textu - 1]
+
+vyber_textu = (input('Enter a number btw. 1 and 3 to select: '))
+
+# overeni spravnosti vstupu pri zadani textu
+
+if  vyber_textu in vyber:
+    print(oddelovac)
+    text = TEXTS[vyber_textu - 1]
+
+else:
+    print('You must enter the correct input: 1,2,3;', 'terminated the program..')
+    exit()
+
 
 # cisteni textu
 
@@ -120,7 +132,7 @@ while i < len(lengths):
     length = lengths[i]
     vyskyt = counts[length]
     if len(str(length)) == 1:
-        str_len = ' ' + str(length) 
+        str_len = ' ' + str(length)
     else:
         str_len = str(length)
     print(" " + str_len + "|" + '*' * vyskyt, " ".center(19-vyskyt) + "|"+ str(vyskyt))
