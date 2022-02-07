@@ -59,22 +59,22 @@ if uzivatele.get(uzivatel) != heslo:
 # vyber textu
 
 print(oddelovac)
-
 vyber = [1,2,3]
-print('We have 3 texts to be analyzed.')
 
-vyber_textu = (input('Enter a number btw. 1 and 3 to select: '))
+print('We have 3 texts to be analyzed.')
 
 # overeni spravnosti vstupu pri zadani textu
 
-if  vyber_textu in vyber:
-    print(oddelovac)
-    text = TEXTS[vyber_textu - 1]
+while True:
+    vyber_textu = (input('Enter a number btw. 1 and 3 to select: '))
+    if vyber_textu.isnumeric() and int(vyber_textu) in range(1, 4):
+        break
+    else:
+        ('You must enter the correct input: 1,2,3;', 'terminated the program..')
 
-else:
-    print('You must enter the correct input: 1,2,3;', 'terminated the program..')
-    exit()
-
+print(oddelovac)
+vyber_textu = int(vyber_textu)
+text = TEXTS[vyber_textu - 1]
 
 # cisteni textu
 
@@ -137,3 +137,4 @@ while i < len(lengths):
         str_len = str(length)
     print(" " + str_len + "|" + '*' * vyskyt, " ".center(19-vyskyt) + "|"+ str(vyskyt))
     i = i + 1
+
