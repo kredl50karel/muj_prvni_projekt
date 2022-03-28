@@ -70,7 +70,11 @@ while True:
     if vyber_textu.isnumeric() and int(vyber_textu) in range(1, 4):
         break
     else:
-        ('You must enter the correct input: 1,2,3;', 'terminated the program..')
+        print(''
+              'You must enter the correct input:'
+              ' 1,2,3'
+              )
+
 
 print(oddelovac)
 vyber_textu = int(vyber_textu)
@@ -83,7 +87,7 @@ slova = []
 
 while vycistit_text:
     slovo = vycistit_text.pop()
-    slovo = slovo.strip('.,:/;')
+    slovo = slovo.strip('.,:/;-')
     if slovo: slova.append(slovo)
 
 vycisteny_text = dict()
